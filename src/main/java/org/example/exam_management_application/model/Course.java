@@ -21,6 +21,35 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private List<User> students = new ArrayList<>();
 
-    //Todo getters et setters
+    public Long getId() {
+        return id;
+    }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public List<Exam> getExams() {
+        return exams;
+    }
+
+    public List<User> getStudents() {
+        return students;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setExams(List<Exam> exams) {
+        this.exams = exams;
+    }
+
+    public void setStudents(List<User> students) {
+        this.students = students;
+    }
 }

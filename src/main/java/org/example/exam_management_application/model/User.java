@@ -42,6 +42,83 @@ public class User {
     @OneToMany(mappedBy = "teacher")
     private List<Exam> teacherExams = new ArrayList<>();
 
-    //Todo getters et setters
+    public Long getId() {
+        return id;
+    }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public List<Exam> getExams() {
+        return exams;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public List<Exam> getTeacherExams() {
+        return teacherExams;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public void setExams(List<Exam> exams) {
+        this.exams = exams;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
+    public void setTeacherExams(List<Exam> teacherExams) {
+        this.teacherExams = teacherExams;
+    }
 }

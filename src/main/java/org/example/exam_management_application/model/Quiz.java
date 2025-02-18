@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "quiz")
+@Table(name = "quizs")
 public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +22,28 @@ public class Quiz {
             inverseJoinColumns = @JoinColumn(name = "questions_id")
     )
     private List<Question> questions = new ArrayList<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
 }

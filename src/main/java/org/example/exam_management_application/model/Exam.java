@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "exam")
+@Table(name = "exams")
 public class Exam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +26,43 @@ public class Exam {
     @ManyToMany(mappedBy = "exams")
     private List<User> students = new ArrayList<>();
 
-    //Todo getters et setters
+    public Long getId() {
+        return id;
+    }
 
+    public String getExamTitle() {
+        return examTitle;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public User getTeacher() {
+        return teacher;
+    }
+
+    public List<User> getStudents() {
+        return students;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setExamTitle(String examTitle) {
+        this.examTitle = examTitle;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public void setTeacher(User teacher) {
+        this.teacher = teacher;
+    }
+
+    public void setStudents(List<User> students) {
+        this.students = students;
+    }
 }
