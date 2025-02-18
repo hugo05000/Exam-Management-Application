@@ -19,9 +19,8 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-    // “TEACHER”, “STUDENT”, “ADMIN”
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    private String role;
+    private String username;
 
     @ManyToMany
     @JoinTable(
@@ -66,8 +65,12 @@ public class User {
         return password;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public List<Exam> getExams() {
@@ -106,8 +109,12 @@ public class User {
         this.password = password;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setExams(List<Exam> exams) {
