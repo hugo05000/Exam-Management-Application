@@ -1,7 +1,8 @@
 package org.example.exam_management_application.controller;
 
 import org.example.exam_management_application.model.Course;
-import org.example.exam_management_application.repository.CourseRepository;
+import org.example.exam_management_application.service.CourseService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,53 +13,43 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/courses")
 public class CourseController {
-    private final CourseRepository courseRepository;
 
-    public CourseController(CourseRepository courseRepository) {
-        this.courseRepository = courseRepository;
-    }
+    @Autowired
+    CourseService courseService;
 
     @GetMapping
     public ResponseEntity<List<Course>> getAllCourses() {
-        return new ResponseEntity<>(courseRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(courseService.getAllCourses(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<Course> addCourse(@RequestBody Course course) {
-        return new ResponseEntity<>(courseRepository.save(course), HttpStatus.CREATED);
+        return new ResponseEntity<>(courseService.createCourse(course), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Course> getCourseById(@PathVariable Long id) {
-        Optional<Course> course = courseRepository.findById(id);
+        Optional<Course> course = courseService.getCourseById(id);
         if (course.isPresent()) {
             return new ResponseEntity<>(course.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+
     @PutMapping("/{id}")
     public ResponseEntity<Course> updateCourse(@PathVariable Long id, @RequestBody Course course) {
-        Optional<Course> courseOptional = courseRepository.findById(id);
-
-        if (courseOptional.isPresent()) {
-            Course updatedCourse = courseOptional.get();
-            updatedCourse.setTitle(course.getTitle());
-            updatedCourse.setStudents(course.getStudents());
-            updatedCourse.setExams(course.getExams());
-
-            Course courseUpdated = courseRepository.save(updatedCourse);
-            return new ResponseEntity<>(courseUpdated, HttpStatus.OK);
+        Optional<Course> updatedCourse = courseService.updateCourse(id, course);
+        if (updatedCourse.isPresent()) {
+            return new ResponseEntity<>(updatedCourse.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCourse(@PathVariable Long id) {
-        Optional<Course> courseOptional = courseRepository.findById(id);
-
-        if (courseOptional.isPresent()) {
-            courseRepository.delete(courseOptional.get());
+        boolean deleted = courseService.deleteCourse(id);
+        if (deleted) {
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

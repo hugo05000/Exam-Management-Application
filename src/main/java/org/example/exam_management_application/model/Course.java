@@ -15,9 +15,6 @@ public class Course {
     @Column
     private String title;
 
-    @OneToMany(mappedBy = "course")
-    private List<Exam> exams = new ArrayList<>();
-
     @ManyToMany(mappedBy = "courses")
     private List<User> students = new ArrayList<>();
 
@@ -27,10 +24,6 @@ public class Course {
 
     public String getTitle() {
         return title;
-    }
-
-    public List<Exam> getExams() {
-        return exams;
     }
 
     public List<User> getStudents() {
@@ -43,10 +36,6 @@ public class Course {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public void setExams(List<Exam> exams) {
-        this.exams = exams;
     }
 
     public void setStudents(List<User> students) {

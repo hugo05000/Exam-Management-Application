@@ -28,6 +28,10 @@ public class Question {
     @Column(name = "right_answer")
     private String rightAnswer;
 
+    @ManyToOne
+    @JoinColumn(name = "exam_id")
+    private Exam exam;
+
     @ManyToMany(mappedBy = "questions")
     private List<Quiz> quizzes = new ArrayList<>();
 
