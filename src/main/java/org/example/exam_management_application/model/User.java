@@ -1,5 +1,6 @@
 package org.example.exam_management_application.model;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
