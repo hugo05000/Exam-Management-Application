@@ -1,8 +1,6 @@
 package org.example.exam_management_application.service;
 
 import org.example.exam_management_application.model.Exam;
-import org.example.exam_management_application.model.Quiz;
-import org.example.exam_management_application.model.User;
 import org.example.exam_management_application.repository.ExamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,7 +37,7 @@ public class ExamService {
             updatedExam.setExamTitle(exam.getExamTitle());
             updatedExam.setStudents(exam.getStudents());
             updatedExam.setStudents(exam.getStudents());
-
+            updatedExam.setTeacher(exam.getTeacher());
 
             Exam examUpdated = examRepository.save(updatedExam);
             return Optional.of(examUpdated);

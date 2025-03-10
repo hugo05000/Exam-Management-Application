@@ -1,8 +1,6 @@
 package org.example.exam_management_application.service;
 
-import org.example.exam_management_application.model.Course;
 import org.example.exam_management_application.model.Quiz;
-import org.example.exam_management_application.model.User;
 import org.example.exam_management_application.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

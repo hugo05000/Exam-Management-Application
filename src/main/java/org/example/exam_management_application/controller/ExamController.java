@@ -1,8 +1,6 @@
 package org.example.exam_management_application.controller;
 
 import org.example.exam_management_application.model.Exam;
-import org.example.exam_management_application.model.User;
-import org.example.exam_management_application.repository.ExamRepository;
 import org.example.exam_management_application.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
