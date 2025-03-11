@@ -20,6 +20,7 @@ import java.util.Optional;
  * @author Hugo MARCEAU
  * @version 1.0
  * @see Quiz
+ * @see QuizService
  */
 @RestController
 @RequestMapping("/api/quizs")

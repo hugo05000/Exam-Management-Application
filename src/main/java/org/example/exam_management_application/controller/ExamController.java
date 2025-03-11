@@ -20,6 +20,7 @@ import java.util.Optional;
  * @author Hugo MARCEAU
  * @version 1.0
  * @see Exam
+ * @see ExamService
  */
 @RestController
 @RequestMapping("/api/exams")

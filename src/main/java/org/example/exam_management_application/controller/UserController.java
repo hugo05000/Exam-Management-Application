@@ -21,6 +21,7 @@ import java.util.Optional;
  * @author Hugo MARCEAU
  * @version 1.0
  * @see User
+ * @see UserService
  */
 @RestController
 @RequestMapping("/api/users")
