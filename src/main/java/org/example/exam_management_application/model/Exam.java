@@ -1,5 +1,6 @@
 package org.example.exam_management_application.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class Exam {
      */
     @ManyToOne
     @JoinColumn(name = "teacher_id")
+    @JsonBackReference("teacher-exams")
     private User teacher;
 
     /** Liste des questions associées à cet examen.

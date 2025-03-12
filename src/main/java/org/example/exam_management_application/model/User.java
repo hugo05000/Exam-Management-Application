@@ -1,5 +1,6 @@
 package org.example.exam_management_application.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +72,7 @@ public class User {
 
     /** Liste des examens créés par l'utilisateur s'il est enseignant. */
     @OneToMany(mappedBy = "teacher")
+    @JsonManagedReference("teacher-exams")
     private List<Exam> teacherExams = new ArrayList<>();
 
     // Getters
